@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root to: 'posts#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  unauthenticated do
+   root :to => 'pages#index', as: :unauthenticated_root
+  end
 
-  match '*path', to: 'posts#index', via: :all
+  authenticated do
+    root :to => 'posts#index'
+    match '*path', to: 'posts#index', via: :all, as: :authenticated_root
+  end
 end

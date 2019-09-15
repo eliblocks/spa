@@ -29,6 +29,9 @@ function AppRouter() {
             <li>
               <Link to="/users/">Users</Link>
             </li>
+            <li>
+              <a href="/users/sign_out" data-method="delete">Log out</a>
+            </li>
           </ul>
         </nav>
 
